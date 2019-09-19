@@ -50,14 +50,3 @@ test.strategy <- function(num.sim) {
 num.sim <- 1000000 # Higher number  leads to very near result to the theoretical answer.
 prob.success <- test.strategy(num.sim=num.sim)
 print(prob.success)
-
-
-
-
-
-
-
-
-
-
-

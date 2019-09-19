@@ -1,0 +1,5 @@
+1) Canadian lottery - page 64 - an even chance of a repeat. Find theoretically and simulate it too.
+2) German Lottery mystery - page 65 - Simulate it.
+3) Games series - find number of games to get the statistically significant winner among the teams.
+4) Birthday problem. - page 64.
+5) 
