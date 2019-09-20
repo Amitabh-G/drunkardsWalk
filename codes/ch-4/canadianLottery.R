@@ -20,6 +20,14 @@ distribution.of.repeat <- function(num.experiments) {
   return(duplicated.sum)
 }
 
-duplicated.sum.vector <- distribution.of.repeat(num.experiments = 100)
+duplicated.sum.vector <- distribution.of.repeat(num.experiments = 10)
+prob.of.duplicates <- mean(duplicated.sum.vector)/10000
+
+# Write to a csv file
+
+library(data.table)
+data.table::fwrite(list(duplicated.sum.vector), file = "D:/other/Programming/R/drunkardsWalk/data/ch-4/duplicatedEntry.csv")
 
 
+# Plot the vector
+boxplot(duplicated.sum.vector)
