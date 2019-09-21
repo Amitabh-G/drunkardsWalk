@@ -20,5 +20,3 @@ birthday.prob <- function(ctr=NA) {
   ctr <- 1
   prob <- find.prob(ctr)
 }
-
-print(birthday.prob())
