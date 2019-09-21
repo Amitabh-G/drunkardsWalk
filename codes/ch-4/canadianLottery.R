@@ -20,7 +20,7 @@ distribution.of.repeat <- function(num.experiments) {
   return(duplicated.sum)
 }
 
-duplicated.sum.vector <- distribution.of.repeat(num.experiments = 10)
+duplicated.sum.vector <- distribution.of.repeat(num.experiments = 100)
 prob.of.duplicates <- mean(duplicated.sum.vector)/10000
 
 # Write to a csv file
