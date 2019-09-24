@@ -2,4 +2,8 @@
 2) German Lottery mystery - page 65 - Simulate it.
 3) Games series - find number of games to get the statistically significant winner among the teams.
 4) Birthday problem. - page 64.
-5) 
+5) Benford's law - page 83
+6) The error and the uncertainty you are aiming for a parameter after a series of Bernoulli trials. A function that takes two parameters - 
+	how near you want to be and how certain you want to be. Bernoulli does not assume normality of sample mean. So, you also shouldn't. page 97. 
+7) Polling to be 99.9 percent certain that mayor's support found would be within +- 2%. Page 98.
+8) Page 100 maybe?
