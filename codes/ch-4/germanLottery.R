@@ -20,7 +20,8 @@ do.experiment <- function(num.sim, num.draws) {
   return(repeat.vec)
 }
 
-repeat.vec <- do.experiment(num.sim = 10000, num.draws = 30160)
+repeat.vec <- do.experiment(num.sim = 100000, num.draws = 3016)
 sum(repeat.vec)
-prob <- sum(repeat.vec)/length(repeat.vec)
+prob <- sum(repeat.vec ==1)/length(repeat.vec)
 prob
+
