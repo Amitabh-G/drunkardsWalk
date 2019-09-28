@@ -20,7 +20,7 @@ do.experiment <- function(num.sim, num.draws) {
   return(repeat.vec)
 }
 
-repeat.vec <- do.experiment(num.sim = 100, num.draws = 3016)
+repeat.vec <- do.experiment(num.sim = 100000, num.draws = 3016)
 sum(repeat.vec)
 prob <- sum(repeat.vec)/length(repeat.vec)
 prob
@@ -29,4 +29,4 @@ prob
 ### Write simulation result to a file
 #####################################
 library(data.table)
-data.table::fwrite(list(repeat.vec), file = "D:/other/Programming/R/drunkardsWalk/data/ch-4/germanLottery/repeatVec-3016.csv")
+data.table::fwrite(list(repeat.vec), file = "D:/other/Programming/R/drunkardsWalk/data/ch-4/germanLottery/repeatVec-3016-1-lac-exps.csv")

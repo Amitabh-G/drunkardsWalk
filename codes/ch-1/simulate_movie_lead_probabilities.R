@@ -75,11 +75,6 @@ dist.of.changes <- function(num.sim, num_obs, num_trials, prob_each_trial) {
   }
   return(num.change.vec)
 }
-num.changes.vec <- dist.of.changes(num.sim=10000, num_obs=20000, num_trials=1, prob_each_trial=0.5)
-
-
-sort(table(num.changes.vec),decreasing=TRUE)[1:10]
-
 
 prob.of.no.change <- function(num.changes.vec) {
   zero.ctr = 0
@@ -91,10 +86,15 @@ prob.of.no.change <- function(num.changes.vec) {
     }
   }
   prob.no.chnge = zero.ctr/length(num.changes.vec)
+  print(zero.ctr)
 }
-
+num.sim <- 10000
+num.changes.vec <- dist.of.changes(num.sim=num.sim, num_obs=20000, num_trials=1, prob_each_trial=0.5)
+top.ten.num.changes <- data.frame(sort(table(num.changes.vec),decreasing=TRUE)[1:10])
 prob.of.zero.change = prob.of.no.change(num.changes.vec=num.changes.vec)
 
+
+length(num.changes.vec)
 time.taken = Sys.time() - tic
 print("Time taken to run the simulation:")
 print(time.taken)
@@ -103,8 +103,13 @@ print(prob.of.zero.change)
 #####################################
 ### Write simulation result to a file
 #####################################
+
 library(data.table)
-data.table::fwrite(list(num.changes.vec), file = "D:/other/Programming/R/drunkard's walk/chapter-1/data/num-changes-vec.csv")
+working.dir <- "D:/other/Programming/R/drunkardsWalk/data/ch-1/movieLeadProb/"
+dirpath <- paste0(working.dir, num.sim, "-sims")
+dir.create(dirpath)
+data.table::fwrite(list(num.changes.vec), file = paste0(dirpath,"/num-changes-vec.csv"))
+data.table::fwrite(top.ten.num.changes, file = paste0(dirpath,"/top-ten-changes.csv"))
 
 
 #######################
@@ -119,7 +124,7 @@ range(num.changes.vec)
 IQR(num.changes.vec)
 fivenum(num.changes.vec)
 summary(num.changes.vec)
-
+length(unique(num.changes.vec))
 #############################################################################################
 ### Questions arising after the simulation: Discussion:
 # 1) What distribution can be used to model the total number of changes of lead for a trial 
@@ -137,22 +142,10 @@ summary(num.changes.vec)
 #################
 ### Plot the data
 #################
-hist(num.changes.vec, 
-     main="Histogram for number of changes in the leading movie", 
-     xlab="Number of changes", 
-     border="blue", 
-     col="green",
-     breaks=555,
-     freq = TRUE)
-hist(num.changes.vec, 
-     main="Histogram for number of changes in the leading movie", 
-     xlab="Number of changes", 
-     border="blue", 
-     col="red",
-     breaks=200)
 
-
-
+install.packages("ggplot2")
+library(ggplot2)
+qplot(num.changes.vec, geom = "histogram", binwidth = 1)
 
 
 
