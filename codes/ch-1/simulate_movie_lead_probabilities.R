@@ -88,7 +88,7 @@ prob.of.no.change <- function(num.changes.vec) {
   prob.no.chnge = zero.ctr/length(num.changes.vec)
   print(zero.ctr)
 }
-num.sim <- 10000
+num.sim <- 100000
 num.changes.vec <- dist.of.changes(num.sim=num.sim, num_obs=20000, num_trials=1, prob_each_trial=0.5)
 top.ten.num.changes <- data.frame(sort(table(num.changes.vec),decreasing=TRUE)[1:10])
 prob.of.zero.change = prob.of.no.change(num.changes.vec=num.changes.vec)
@@ -142,8 +142,6 @@ length(unique(num.changes.vec))
 #################
 ### Plot the data
 #################
-
-install.packages("ggplot2")
 library(ggplot2)
 qplot(num.changes.vec, geom = "histogram", binwidth = 1)
 
